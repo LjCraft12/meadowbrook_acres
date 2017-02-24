@@ -14,6 +14,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RouterModule, Routes} from  '@angular/router';
 import { SecurityComponent } from './components/security/security.component';
 
+// Custom services
+import { ValidateService } from './services/validate.service';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
 const appRoutes: Routes = [
   { path:'', component: HomeComponent },                                                                                // Setting up the path for the homepage
   { path:'register', component: RegisterComponent },                                                                    // Setting up Register route
@@ -40,9 +44,10 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FlashMessagesModule
   ],
-  providers: [],
+  providers: [ValidateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
