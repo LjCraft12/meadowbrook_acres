@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand"[routerLink]="['/']">Meadowbrook Acres</a>
+      <a class="navbar-brand"[routerLink]="['/']">Angular 2 Demo App</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
 
@@ -19,10 +19,10 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="authService.loggedIn()"><a [routerLinkActive]="['active']" [routerLink]="['/dashboard']">Dashboard</a></li>
-        <li *ngif="authService.loggedIn()"><a [routerLinkActive]="['active']" [routerLink]="['/profile']">Profile</a></li>
-        <li><a [routerLinkActive]="['active']" [routerLink]="['/login']">Login</a></li>
-        <li><a [routerLinkActive]="['active']" [routerLink]="['/register']">Register</a></li>
-        <li *ngif="authService.loggedIn()"><a (click)="onLogoutClick()" href="#">Logout</a></li>
+        <li *ngIf="authService.loggedIn()"><a [routerLinkActive]="['active']" [routerLink]="['/profile']">Profile</a></li>
+        <li *ngIf="!authService.loggedIn()"><a [routerLinkActive]="['active']" [routerLink]="['/login']">Login</a></li>
+        <li *ngIf="!authService.loggedIn()"><a [routerLinkActive]="['active']" [routerLink]="['/register']">Register</a></li>
+        <li *ngIf="authService.loggedIn()"><a (click)="onLogoutClick()" href="#">Logout</a></li>
       </ul>
 
     </div><!--/.nav-collapse -->

@@ -48,6 +48,10 @@ app.get('/', (req, res) => {
     res.send('Hello world');
 });
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 app.use('/users', users);
 
 // Listening for the port
