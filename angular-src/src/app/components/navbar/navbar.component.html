@@ -13,15 +13,16 @@
 
       <ul class="nav navbar-nav navbar-left">
         <li><a [routerLinkActive]="['active']" [routerLink]="['/']">Home</a></li>
-        <li><a [routerLinkActive]="['active']" [routerLink]="['/community']">Community</a></li>
-        <li><a [routerLinkActive]="['active']" [routerLink]="['/security']">Security</a></li>
+        <!--<li><a [routerLinkActive]="['active']" [routerLink]="['/community']">Community</a></li>-->
+        <!--<li><a [routerLinkActive]="['active']" [routerLink]="['/security']">Security</a></li>-->
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="authService.loggedIn()"><a [routerLinkActive]="['active']" [routerLink]="['/dashboard']">Dashboard</a></li>
+        <li *ngif="authService.loggedIn()"><a [routerLinkActive]="['active']" [routerLink]="['/profile']">Profile</a></li>
         <li><a [routerLinkActive]="['active']" [routerLink]="['/login']">Login</a></li>
-        <li><a [routerLinkActive]="['active']" [routerLink]="['/profile']">Profile</a></li>
-        <li><a [routerLinkActive]="['active']" [routerLink]="['/register']">Register New Admin</a></li>
-        <li><a (click)="onLogoutClick()" href="#">Logout</a></li>
+        <li><a [routerLinkActive]="['active']" [routerLink]="['/register']">Register</a></li>
+        <li *ngif="authService.loggedIn()"><a (click)="onLogoutClick()" href="#">Logout</a></li>
       </ul>
 
     </div><!--/.nav-collapse -->
